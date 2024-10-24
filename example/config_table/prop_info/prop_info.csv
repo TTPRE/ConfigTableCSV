@@ -1,0 +1,6 @@
+﻿unique_id,unique_name,damage,is_melee_weapon,pos_2d,pos_3d,tags
+int,String,float,bool,vector2,vector3,array
+唯一id标识,唯一字符串标识,武器伤害,是否是近战武器1：是，0：不是,道具位置（不含高度）,道具位置（含高度）,道具标签
+10001,dagger,2,1,"200.0,200.0","200.0,200.0,90",low;low damage;Obtaining is easy
+10002,sword,3.5,1,"100,1.5","100,1.5,0",low;low damage;Obtaining is difficult
+10003,gun,6.6,0,"3.5,3.5","3.5,3.5,-10.5",high;high damage;Obtaining is difficult
