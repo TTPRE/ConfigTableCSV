@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://p6nqfcdo6gvi"]
+
+[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_choose_csv_config_table_path/plugin_choose_csv_config_table_path.gd" id="1_g48a5"]
+
+[node name="PluginChooseCsvConfigTablePath" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_g48a5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LineEditCsvConfigTablePath" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonChoose" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Choose "
+
+[node name="ButtonDelete" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Delete "
+
+[connection signal="pressed" from="HBoxContainer/ButtonChoose" to="." method="_on_button_choose_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonDelete" to="." method="_on_button_delete_pressed"]

@@ -1,0 +1,202 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnbkcr84v2f1x"]
+
+[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_create_csv_config_helper_window/plugin_create_csv_config_helper_window.gd" id="1_4wrvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbdmb"]
+bg_color = Color(0.113725, 0.133333, 0.160784, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+expand_margin_top = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_617tl"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arifq"]
+bg_color = Color(0.145098, 0.168627, 0.203922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly7tw"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tym3x"]
+
+[node name="PluginCreateCsvConfigHelper" type="Window"]
+title = "Create CsvConfigHelper"
+initial_position = 2
+size = Vector2i(800, 500)
+visible = false
+wrap_controls = true
+transient = true
+exclusive = true
+min_size = Vector2i(600, 300)
+keep_title_visible = true
+theme_override_constants/close_h_offset = 26
+theme_override_constants/close_v_offset = 22
+theme_override_font_sizes/title_font_size = 20
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_xbdmb")
+script = ExtResource("1_4wrvf")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_617tl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainerCsvConfigHelper" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CsvConfigHelper Path:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+
+[node name="LineEditCsvConfigHelperPath" type="LineEdit" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_arifq")
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ButtonSetCsvConfigHelperPath" type="Button" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Set CsvConfigHelper Path"
+
+[node name="VBoxContainerCsvTableFile" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer2"]
+layout_mode = 2
+text = "CsvConfigTable Path:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ly7tw")
+
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tym3x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainerCvsTablePath" type="VBoxContainer" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4/ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonAdd" type="Button" parent="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Add "
+
+[node name="VBoxContainerButton" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/VBoxContainerButton"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainerButton/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="ButtonOk" type="Button" parent="Panel/VBoxContainer/VBoxContainerButton/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "OK "
+
+[node name="ButtonCancle" type="Button" parent="Panel/VBoxContainer/VBoxContainerButton/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Cancel "
+
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer/MarginContainer2/ButtonSetCsvConfigHelperPath" to="." method="_on_button_set_csv_config_helper_path_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainerCsvTableFile/MarginContainer/Panel/MarginContainer4/ScrollContainer/VBoxContainer/ButtonAdd" to="." method="_on_button_add_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainerButton/MarginContainer/HBoxContainer/ButtonOk" to="." method="_on_button_ok_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainerButton/MarginContainer/HBoxContainer/ButtonCancle" to="." method="_on_button_cancle_pressed"]

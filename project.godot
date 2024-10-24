@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ConfigTableCSV"
+config/features=PackedStringArray("4.3", "Mobile")
+
+[audio]
+
+buses/default_bus_layout=""
+
+[autoload]
+
+CsvConfigHelper="*res://csv_config_helper.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/config_table_csv/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="mobile"
