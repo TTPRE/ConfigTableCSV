@@ -50,6 +50,8 @@ static func get_bool_from_string(data: String) -> bool:
 
 
 static func get_vector2_from_string(data: String) -> Vector2:
+	data = remove_str_space(data)
+	data = data.replace("，", ",")
 	var psa_data : PackedStringArray = data.split(",", false, 1)
 	if psa_data.size() < 2:
 		return Vector2.ZERO
@@ -58,6 +60,8 @@ static func get_vector2_from_string(data: String) -> Vector2:
 
 
 static func get_vector3_from_string(data: String) -> Vector3:
+	data = remove_str_space(data)
+	data = data.replace("，", ",")
 	var psa_data : PackedStringArray = data.split(",", false, 2)
 	if psa_data.size() < 3:
 		return Vector3.ZERO
@@ -66,6 +70,7 @@ static func get_vector3_from_string(data: String) -> Vector3:
 
 
 static func get_array_from_string(data: String) -> Array[String]:
+	data = data.replace("；", ";")
 	var psa_data : PackedStringArray = data.split(";", false)
 	var resault : Array[String] = []
 	for temp : String in psa_data:

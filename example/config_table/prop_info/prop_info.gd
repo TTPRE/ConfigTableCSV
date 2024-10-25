@@ -37,3 +37,4 @@ func get_csv_data_line_duplicate(id: int) -> PropInfoData:
 	if not _d_prop_info.has(id):
 		return null
 	return _d_prop_info[id].duplicate()
+
