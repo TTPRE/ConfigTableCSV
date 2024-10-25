@@ -23,6 +23,8 @@ const ANALYZE_CLASS_NAME_SUFFIX : String = "Analyze"
 const ID_CLASS_NAME_SUFFIX : String = "ID"
 const CLASS_NAME_SUFFIX : String = ""
 
+const CSV_CONFIG_TABLE_ANNOTATION_COLUMN_VARIABLE_NAME : String = "###"
+
 const CSV_CONFIG_HELPER_SCRIPT_NAME : String = "csv_config_helper.gd"
 const CSV_CONFIG_HELPER_AUTOLOAD_NAME : String = "CsvConfigHelper"
 

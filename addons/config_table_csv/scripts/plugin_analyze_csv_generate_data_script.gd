@@ -22,6 +22,8 @@ static func generate_data_script(data: Array[PackedStringArray], csv_dir_path: S
 	data_script_file.store_line("")
 
 	for index : int in range(psa_variable_name.size()):
+		if psa_variable_name[index] == PluginConfigHelper.CSV_CONFIG_TABLE_ANNOTATION_COLUMN_VARIABLE_NAME:
+			continue
 		var new_data_line : String
 		var type : String = PluginConfigHelper.get_type_standard_format(psa_variable_type[index])
 		if type == "Array":
@@ -35,6 +37,8 @@ static func generate_data_script(data: Array[PackedStringArray], csv_dir_path: S
 	data_script_file.store_line("func duplicate() -> {class_name}:".format({"class_name": data_class_name}))
 	data_script_file.store_line("\tvar data : {class_name} = {class_name}.new()".format({"class_name": data_class_name}))
 	for index : int in range(psa_variable_name.size()):
+		if psa_variable_name[index] == PluginConfigHelper.CSV_CONFIG_TABLE_ANNOTATION_COLUMN_VARIABLE_NAME:
+			continue
 		var new_data_line : String
 		var type : String = PluginConfigHelper.get_type_standard_format(psa_variable_type[index])
 		if type == "Array":

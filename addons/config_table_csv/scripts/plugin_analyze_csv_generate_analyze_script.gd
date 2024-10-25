@@ -31,6 +31,8 @@ static func generate_analyze_script(data: Array[PackedStringArray], csv_dir_path
 	analyze_script_file.store_line(PluginConfigHelper.FUNCTION_GET_CONFIG_DATA_BEGIN.format({"class_name":data_class_name}))
 	
 	for index : int in range(psa_variable_name.size()):
+		if psa_variable_name[index] == PluginConfigHelper.CSV_CONFIG_TABLE_ANNOTATION_COLUMN_VARIABLE_NAME:
+			continue
 		var new_analyze_line : String
 		var type : String = PluginConfigHelper.get_type_standard_format(psa_variable_type[index])
 		match type:

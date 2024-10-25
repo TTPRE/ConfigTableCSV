@@ -28,11 +28,11 @@ static func get_config_data() -> Array[PropInfoData]:
 		var new_data : PropInfoData = PropInfoData.new()
 		new_data.unique_id = csv_table_data_line[0].to_int()
 		new_data.unique_name = csv_table_data_line[1]
-		new_data.damage = csv_table_data_line[2].to_float()
-		new_data.is_melee_weapon = get_bool_from_string(csv_table_data_line[3])
-		new_data.pos_2d = get_vector2_from_string(csv_table_data_line[4])
-		new_data.pos_3d = get_vector3_from_string(csv_table_data_line[5])
-		new_data.tags = get_array_from_string(csv_table_data_line[6])
+		new_data.damage = csv_table_data_line[3].to_float()
+		new_data.is_melee_weapon = get_bool_from_string(csv_table_data_line[4])
+		new_data.pos_2d = get_vector2_from_string(csv_table_data_line[5])
+		new_data.pos_3d = get_vector3_from_string(csv_table_data_line[6])
+		new_data.tags = get_array_from_string(csv_table_data_line[7])
 		
 		result.push_back(new_data)
 	return result
