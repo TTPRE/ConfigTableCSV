@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnbkcr84v2f1x"]
 
-[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_create_csv_config_helper_window/plugin_create_csv_config_helper_window.gd" id="1_4wrvf"]
+[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_create_csv_config_manager_window/plugin_create_csv_config_manager_window.gd" id="1_4wrvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbdmb"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)
@@ -37,7 +37,7 @@ corner_radius_bottom_left = 7
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tym3x"]
 
 [node name="PluginCreateCsvConfigHelper" type="Window"]
-title = "Create CsvConfigHelper"
+title = "Create CsvConfigManager"
 initial_position = 2
 size = Vector2i(800, 500)
 visible = false
@@ -86,7 +86,7 @@ theme_override_constants/margin_left = 30
 [node name="Label" type="Label" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "CsvConfigHelper Path:"
+text = "CsvConfigManager Path:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper"]
 layout_mode = 2
@@ -110,7 +110,7 @@ theme_override_constants/margin_right = 30
 
 [node name="ButtonSetCsvConfigHelperPath" type="Button" parent="Panel/VBoxContainer/VBoxContainerCsvConfigHelper/HBoxContainer/MarginContainer2"]
 layout_mode = 2
-text = "Set CsvConfigHelper Path"
+text = "Set CsvConfigManger Path"
 
 [node name="VBoxContainerCsvTableFile" type="VBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2

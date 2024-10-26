@@ -34,15 +34,15 @@
 ##       |-item_info_id.gd      （item.csv唯一id常量gd脚本）
 ## 
 ## 3.如何在自己的代码中使用
-## 项目 -> 工具 -> Config Table CSV -> Create CSV Config Helper
-## 选择csv_config_helper.gd文件路径，并选择任意条csv配置表格路径
-## 确认后将生成csv_config_helper.gd文件，并将其以CsvConfigHelper为
+## 项目 -> 工具 -> Config Table CSV -> Create CSV Config Manager
+## 选择csv_config_manager.gd文件路径，并选择任意条csv配置表格路径
+## 确认后将生成csv_config_manager.gd文件，并将其以CsvConfigManager为
 ## 名称添加到全局自动加载中
 ## 通过以下四种方式访问数据：
-## CsvConfigHelper.item_info.get_csv_data() ## 不建议使用，除非能够确保引用的数据不会被修改，否则请使用函数 get_csv_data_duplicate()
-## CsvConfigHelper.item_info.get_csv_data_duplicate() ## 建议使用，相较于 get_csv_data() 更安全，同时会更消耗性能，性能敏感位置评估使用
-## CsvConfigHelper.item_info.get_csv_data_line(id: int) ## 不建议使用，除非能够确保引用的数据不会被修改，否则请使用函数 get_csv_data_line_duplicate(id: int)
-## CsvConfigHelper.item_info.get_csv_data_line_duplicate(id: int) ## 建议使用，相较于 get_csv_data_line(id: int) 更安全，同时更消耗性能，性能敏感位置评估使用
+## CsvConfigManager.item_info.get_csv_data() ## 不建议使用，除非能够确保引用的数据不会被修改，否则请使用函数 get_csv_data_duplicate()
+## CsvConfigManager.item_info.get_csv_data_duplicate() ## 建议使用，相较于 get_csv_data() 更安全，同时会更消耗性能，性能敏感位置评估使用
+## CsvConfigManager.item_info.get_csv_data_line(id: int) ## 不建议使用，除非能够确保引用的数据不会被修改，否则请使用函数 get_csv_data_line_duplicate(id: int)
+## CsvConfigManager.item_info.get_csv_data_line_duplicate(id: int) ## 建议使用，相较于 get_csv_data_line(id: int) 更安全，同时更消耗性能，性能敏感位置评估使用
 ##
 ## 
 ## *注:
@@ -86,7 +86,7 @@ extends EditorPlugin
 
 var plugin_create_csv_config_table : PluginCreateCSVConfigTable
 var plugin_analyze_csv_config_table : PluginAnalyzeCSVConfigTable
-var plugin_create_csv_config_helper : PluginCreateCSVConfigHelper
+var plugin_create_csv_config_manager : PluginCreateCSVConfigManager
 
 func _enter_tree() -> void:
 	initialize()
@@ -109,15 +109,15 @@ func initialize() -> void:
 	plugin_analyze_csv_config_table = PluginAnalyzeCSVConfigTable.new()
 	self.add_child(plugin_analyze_csv_config_table)
 	
-	plugin_create_csv_config_helper = PluginCreateCSVConfigHelper.new()
-	self.add_child(plugin_create_csv_config_helper)
+	plugin_create_csv_config_manager = PluginCreateCSVConfigManager.new()
+	self.add_child(plugin_create_csv_config_manager)
 	pass
 
 
 func destroy() -> void:
 	plugin_create_csv_config_table.free()
 	plugin_analyze_csv_config_table.free()
-	plugin_create_csv_config_helper.free()
+	plugin_create_csv_config_manager.free()
 	pass
 
 
@@ -130,8 +130,8 @@ func add_config_table_csv_menu() -> void:
 	popup_menu_config_table_csv.add_item("Analyze CSV Config Table", PluginConfigHelper.ID_ANALYZE_CSV_CONFIG_TABLE)
 	popup_menu_config_table_csv.id_pressed.connect(plugin_analyze_csv_config_table.show_editor_file_dialog)
 	
-	popup_menu_config_table_csv.add_item("Create CSV Config Helper", PluginConfigHelper.ID_CREATE_CSV_CONFIG_HELPER)
-	popup_menu_config_table_csv.id_pressed.connect(plugin_create_csv_config_helper.show_plugin_create_csv_config_helper)
+	popup_menu_config_table_csv.add_item("Create CSV Config Manager", PluginConfigHelper.ID_CREATE_CSV_CONFIG_HELPER)
+	popup_menu_config_table_csv.id_pressed.connect(plugin_create_csv_config_manager.show_plugin_create_csv_config_helper)
 	
 	add_tool_submenu_item("Config Table CSV", popup_menu_config_table_csv)
 	pass

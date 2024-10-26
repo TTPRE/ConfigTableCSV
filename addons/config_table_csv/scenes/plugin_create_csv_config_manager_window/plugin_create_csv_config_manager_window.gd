@@ -15,9 +15,9 @@ func _ready() -> void:
 	self.add_child(editor_file_dialog)
 	
 	editor_file_dialog.get_line_edit().editable = false
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_HELPER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	editor_file_dialog.file_mode = EditorFileDialog.FILE_MODE_SAVE_FILE
-	editor_file_dialog.title = "Set CsvConfigHelper Path"
+	editor_file_dialog.title = "Set CsvConfigManager Path"
 	editor_file_dialog.disable_overwrite_warning = true
 	editor_file_dialog.filters = PackedStringArray(["*.gd"]) 
 	editor_file_dialog.confirmed.connect(set_csv_config_helper_path)
@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func set_csv_config_helper_path() -> void:
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_HELPER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	line_edit_csv_config_helper_path.text = editor_file_dialog.current_path
 	pass
 
@@ -52,7 +52,7 @@ func _on_button_cancle_pressed() -> void:
 
 func _on_button_set_csv_config_helper_path_pressed() -> void:
 	editor_file_dialog.popup_file_dialog()
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_HELPER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	pass # Replace with function body.
 
 
@@ -103,7 +103,7 @@ func create_csv_config_helper_autoload_script(csv_config_helper_path: String,a_c
 	EditorInterface.get_resource_filesystem().scan()
 	
 	var editor_plugin : EditorPlugin = EditorPlugin.new()
-	editor_plugin.add_autoload_singleton(PluginConfigHelper.CSV_CONFIG_HELPER_AUTOLOAD_NAME, csv_config_helper_path)
+	editor_plugin.add_autoload_singleton(PluginConfigHelper.CSV_CONFIG_MANAGER_AUTOLOAD_NAME, csv_config_helper_path)
 	
 	self.visible = false
 	pass

@@ -19,7 +19,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-CsvConfigHelper="*res://example/config_table/csv_config_helper.gd"
+CsvConfigManager="*res://example/config_table/csv_config_manager.gd"
 
 [editor_plugins]
 

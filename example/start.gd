@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var prop_info : Array[PropInfoData] = CsvConfigHelper.prop_info.get_csv_data_duplicate()
+	var prop_info : Array[PropInfoData] = CsvConfigManager.prop_info.get_csv_data_duplicate()
 	for prop_info_data : PropInfoData in prop_info:
 		print(prop_info_data.unique_id, " ",
 				prop_info_data.unique_name, " ",
@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	print()
 	
-	var gun_info_data : PropInfoData = CsvConfigHelper.prop_info.get_csv_data_line_duplicate(PropInfoID.GUN)
+	var gun_info_data : PropInfoData = CsvConfigManager.prop_info.get_csv_data_line_duplicate(PropInfoID.GUN)
 	print(gun_info_data.unique_id, " ",
 			gun_info_data.unique_name, " ",
 			gun_info_data.damage, " ",
