@@ -46,7 +46,7 @@ func _on_button_ok_pressed() -> void:
 
 
 func _on_button_cancle_pressed() -> void:
-	self.visible = false
+	self.hide()
 	pass # Replace with function body.
 
 
@@ -117,3 +117,8 @@ func get_file_name_without_suffix_from_path(csv_config_table_path: String) -> St
 	var index : int = file_name_without_suffix.rfind("/")
 	file_name_without_suffix = file_name_without_suffix.substr(index + 1)
 	return file_name_without_suffix
+
+
+func _on_close_requested() -> void:
+	self.hide()
+	pass # Replace with function body.
