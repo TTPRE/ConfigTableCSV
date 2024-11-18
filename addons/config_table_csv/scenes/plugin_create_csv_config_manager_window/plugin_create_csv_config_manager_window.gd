@@ -15,7 +15,7 @@ func _ready() -> void:
 	self.add_child(editor_file_dialog)
 	
 	editor_file_dialog.get_line_edit().editable = false
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginCTSConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	editor_file_dialog.file_mode = EditorFileDialog.FILE_MODE_SAVE_FILE
 	editor_file_dialog.title = "Set CsvConfigManager Path"
 	editor_file_dialog.disable_overwrite_warning = true
@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func set_csv_config_helper_path() -> void:
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginCTSConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	line_edit_csv_config_helper_path.text = editor_file_dialog.current_path
 	pass
 
@@ -52,7 +52,7 @@ func _on_button_cancle_pressed() -> void:
 
 func _on_button_set_csv_config_helper_path_pressed() -> void:
 	editor_file_dialog.popup_file_dialog()
-	editor_file_dialog.get_line_edit().text = PluginConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
+	editor_file_dialog.get_line_edit().text = PluginCTSConfigHelper.CSV_CONFIG_MANAGER_SCRIPT_NAME
 	pass # Replace with function body.
 
 
@@ -78,7 +78,7 @@ func create_csv_config_helper_autoload_script(csv_config_helper_path: String,a_c
 		file.store_line(data_line)
 	
 	if a_csv_config_helper_data_line.is_empty():
-		file.store_line(PluginConfigHelper.NEW_FILE_ANNOTATION)
+		file.store_line(PluginCTSConfigHelper.NEW_FILE_ANNOTATION)
 		file.store_line("extends Node")
 		file.store_line("")
 		file.store_line("")
@@ -89,7 +89,7 @@ func create_csv_config_helper_autoload_script(csv_config_helper_path: String,a_c
 			continue
 		
 		var file_name_without_suffix : String = get_file_name_without_suffix_from_path(path)
-		var csv_get_class_name : String = PluginConfigHelper.get_class_name(file_name_without_suffix, PluginConfigHelper.CLASS_NAME_SUFFIX)
+		var csv_get_class_name : String = PluginCTSConfigHelper.get_class_name(file_name_without_suffix, PluginCTSConfigHelper.CLASS_NAME_SUFFIX)
 		var new_data_line = "var {var_name} : {class_name} = {class_name}.new()".format({"var_name":file_name_without_suffix, "class_name":csv_get_class_name})
 		if a_csv_config_helper_data_line.has(new_data_line):
 			continue
@@ -103,7 +103,7 @@ func create_csv_config_helper_autoload_script(csv_config_helper_path: String,a_c
 	EditorInterface.get_resource_filesystem().scan()
 	
 	var editor_plugin : EditorPlugin = EditorPlugin.new()
-	editor_plugin.add_autoload_singleton(PluginConfigHelper.CSV_CONFIG_MANAGER_AUTOLOAD_NAME, csv_config_helper_path)
+	editor_plugin.add_autoload_singleton(PluginCTSConfigHelper.CSV_CONFIG_MANAGER_AUTOLOAD_NAME, csv_config_helper_path)
 	
 	self.visible = false
 	pass
@@ -113,7 +113,7 @@ func get_file_name_without_suffix_from_path(csv_config_table_path: String) -> St
 	var file_name_without_suffix : String
 	if csv_config_table_path.is_empty():
 		return file_name_without_suffix
-	file_name_without_suffix = csv_config_table_path.replace(PluginConfigHelper.CSV_FILE_SUFFIX, "")
+	file_name_without_suffix = csv_config_table_path.replace(PluginCTSConfigHelper.CSV_FILE_SUFFIX, "")
 	var index : int = file_name_without_suffix.rfind("/")
 	file_name_without_suffix = file_name_without_suffix.substr(index + 1)
 	return file_name_without_suffix

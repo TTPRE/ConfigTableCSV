@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 
 
 func show_editor_file_dialog(id: int) -> void:
-	if id != PluginConfigHelper.ID_ANALYZE_CSV_CONFIG_TABLE:
+	if id != PluginCTSConfigHelper.ID_ANALYZE_CSV_CONFIG_TABLE:
 		return
 	
 	editor_file_dialog.popup_file_dialog()
@@ -47,5 +47,5 @@ func analyze_csv_config_table() -> void:
 
 
 func remove_csv_file_name_suffix(csv_file_name: String) -> String:
-	return csv_file_name.substr(0, csv_file_name.length() - PluginConfigHelper.CSV_FILE_SUFFIX.length())
+	return csv_file_name.substr(0, csv_file_name.length() - PluginCTSConfigHelper.CSV_FILE_SUFFIX.length())
 	

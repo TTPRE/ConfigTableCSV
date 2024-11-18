@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 
 
 func show_editor_file_dialog(id: int) -> void:
-	if id != PluginConfigHelper.ID_CREATE_CSV_CONFIG_TABLE:
+	if id != PluginCTSConfigHelper.ID_CREATE_CSV_CONFIG_TABLE:
 		return
 	
 	editor_file_dialog.popup_file_dialog()
@@ -26,7 +26,7 @@ func show_editor_file_dialog(id: int) -> void:
 func create_csv_config_table() -> void:
 	var csv_file_name : String = check_csv_file_name(editor_file_dialog.current_file)
 	if csv_file_name.is_empty():
-		printerr(PluginConfigHelper.ERR_MESSAGE_START + "File name error")
+		printerr(PluginCTSConfigHelper.ERR_MESSAGE_START + "File name error")
 		return
 	
 	# create same name dir
@@ -34,11 +34,11 @@ func create_csv_config_table() -> void:
 	
 	var csv_dir_path : String = check_csv_dir_path(editor_file_dialog.current_dir)
 	if csv_dir_path.is_empty():
-		printerr(PluginConfigHelper.ERR_MESSAGE_START + "Dir error")
+		printerr(PluginCTSConfigHelper.ERR_MESSAGE_START + "Dir error")
 		return
 	
 	if FileAccess.file_exists(csv_dir_path + csv_dir_name + csv_file_name):
-		printerr(PluginConfigHelper.ERR_MESSAGE_START + "File already exist")
+		printerr(PluginCTSConfigHelper.ERR_MESSAGE_START + "File already exist")
 		return
 	
 	DirAccess.make_dir_absolute(csv_dir_path + csv_dir_name)
@@ -72,19 +72,19 @@ func check_csv_file_name(file_name: String) -> String:
 	if file_name.is_empty():
 		return ""
 	
-	var suffix_length : int = PluginConfigHelper.CSV_FILE_SUFFIX.length()
+	var suffix_length : int = PluginCTSConfigHelper.CSV_FILE_SUFFIX.length()
 	
 	if file_name.length() <= suffix_length:
-		return file_name + PluginConfigHelper.CSV_FILE_SUFFIX
+		return file_name + PluginCTSConfigHelper.CSV_FILE_SUFFIX
 	
-	if file_name.count(PluginConfigHelper.CSV_FILE_SUFFIX, file_name.length() - suffix_length, file_name.length()) <= 0:
-		return file_name + PluginConfigHelper.CSV_FILE_SUFFIX
+	if file_name.count(PluginCTSConfigHelper.CSV_FILE_SUFFIX, file_name.length() - suffix_length, file_name.length()) <= 0:
+		return file_name + PluginCTSConfigHelper.CSV_FILE_SUFFIX
 	
 	return file_name
 
 
 func get_csv_same_name_dir(file_name: String) -> String:
-	var dir_name : String = file_name.substr(0, file_name.length() - PluginConfigHelper.CSV_FILE_SUFFIX.length())
+	var dir_name : String = file_name.substr(0, file_name.length() - PluginCTSConfigHelper.CSV_FILE_SUFFIX.length())
 	return dir_name + "/"
 
 
@@ -92,7 +92,7 @@ func check_csv_dir_path(dir_path: String) -> String:
 	if dir_path.is_empty():
 		return ""
 	
-	if dir_path == PluginConfigHelper.CSV_DIR_PREFIX:
+	if dir_path == PluginCTSConfigHelper.CSV_DIR_PREFIX:
 		return dir_path
 	
 	return dir_path + "/"

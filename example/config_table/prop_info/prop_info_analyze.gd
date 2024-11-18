@@ -4,7 +4,8 @@ class_name PropInfoAnalyze
 
 ## csv配置表格文件路径
 const CSV_TABLE_PATH : String = "res://example/config_table/prop_info/prop_info.csv"
-
+## 数据行开始行
+const CSV_TABEL_DATA_LINE_BEGIN : int = 3
 
 ## 加载cvs表格数据以数组形式返回
 static func load_csv_config_table(csv_table_path: String) -> Array[PackedStringArray]:
@@ -22,7 +23,7 @@ static func get_config_data() -> Array[PropInfoData]:
 	var result : Array[PropInfoData] = []
 	var csv_table_data : Array[PackedStringArray] = load_csv_config_table(CSV_TABLE_PATH)
 	
-	for index : int in range(PluginConfigHelper.CSV_TABEL_EFFECTIVE_LINE_BEGIN, csv_table_data.size()):
+	for index : int in range(CSV_TABEL_DATA_LINE_BEGIN, csv_table_data.size()):
 		var csv_table_data_line : PackedStringArray = csv_table_data[index]
 		
 		var new_data : PropInfoData = PropInfoData.new()

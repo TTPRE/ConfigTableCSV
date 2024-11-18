@@ -12,7 +12,7 @@ func _enter_tree() -> void:
 
 
 func show_plugin_create_csv_config_helper(id: int) -> void:
-	if id != PluginConfigHelper.ID_CREATE_CSV_CONFIG_HELPER:
+	if id != PluginCTSConfigHelper.ID_CREATE_CSV_CONFIG_HELPER:
 		return
 	
 	instance_scene_plugin_create_csv_config_manager.popup_centered()

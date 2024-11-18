@@ -124,13 +124,13 @@ func destroy() -> void:
 func add_config_table_csv_menu() -> void:
 	var popup_menu_config_table_csv : PopupMenu = PopupMenu.new()
 	
-	popup_menu_config_table_csv.add_item("Create CSV Config Table", PluginConfigHelper.ID_CREATE_CSV_CONFIG_TABLE)
+	popup_menu_config_table_csv.add_item("Create CSV Config Table", PluginCTSConfigHelper.ID_CREATE_CSV_CONFIG_TABLE)
 	popup_menu_config_table_csv.id_pressed.connect(plugin_create_csv_config_table.show_editor_file_dialog)
 	
-	popup_menu_config_table_csv.add_item("Analyze CSV Config Table", PluginConfigHelper.ID_ANALYZE_CSV_CONFIG_TABLE)
+	popup_menu_config_table_csv.add_item("Analyze CSV Config Table", PluginCTSConfigHelper.ID_ANALYZE_CSV_CONFIG_TABLE)
 	popup_menu_config_table_csv.id_pressed.connect(plugin_analyze_csv_config_table.show_editor_file_dialog)
 	
-	popup_menu_config_table_csv.add_item("Create CSV Config Manager", PluginConfigHelper.ID_CREATE_CSV_CONFIG_HELPER)
+	popup_menu_config_table_csv.add_item("Create CSV Config Manager", PluginCTSConfigHelper.ID_CREATE_CSV_CONFIG_HELPER)
 	popup_menu_config_table_csv.id_pressed.connect(plugin_create_csv_config_manager.show_plugin_create_csv_config_helper)
 	
 	add_tool_submenu_item("Config Table CSV", popup_menu_config_table_csv)
