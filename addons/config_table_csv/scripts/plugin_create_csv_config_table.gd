@@ -53,10 +53,12 @@ func create_csv_config_table() -> void:
 	
 	# create csv config table file, write default data
 	var csv_file : FileAccess = FileAccess.open(csv_file_path, FileAccess.WRITE)
+	
 	# BOM
-	csv_file.store_8(0xEF) 
-	csv_file.store_8(0xBB)
-	csv_file.store_8(0xBF)
+	#csv_file.store_8(0xEF) 
+	#csv_file.store_8(0xBB)
+	#csv_file.store_8(0xBF)
+	
 	# default data
 	csv_file.store_line("unique_id,unique_name")
 	csv_file.store_line("int,String")
