@@ -7,6 +7,7 @@ const CSV_TABLE_PATH : String = "res://example/config_table/prop_info/prop_info.
 ## 数据行开始行
 const CSV_TABEL_DATA_LINE_BEGIN : int = 3
 
+
 ## 加载cvs表格数据以数组形式返回
 static func load_csv_config_table(csv_table_path: String) -> Array[PackedStringArray]:
 	var csv_table_data : Array[PackedStringArray] = []

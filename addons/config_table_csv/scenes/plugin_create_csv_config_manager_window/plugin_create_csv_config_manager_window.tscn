@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cnbkcr84v2f1x"]
 
-[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_create_csv_config_manager_window/plugin_create_csv_config_manager_window.gd" id="1_4wrvf"]
+[ext_resource type="Script" uid="uid://b8x0l4oir1n4o" path="res://addons/config_table_csv/scenes/plugin_create_csv_config_manager_window/plugin_create_csv_config_manager_window.gd" id="1_4wrvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbdmb"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)

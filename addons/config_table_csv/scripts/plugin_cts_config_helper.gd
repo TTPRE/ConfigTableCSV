@@ -112,7 +112,7 @@ static func get_array_from_string(data: String) -> Array[String]:
 
 const SCRIPT_FILE_DATA : String = "
 var _a_{csv_file_name} : Array[{data_class_name}] ##不要直接使用该变量，请使用函数访问
-var _d_{csv_file_name} : Dictionary ##不要直接使用该变量，请使用函数访问
+var _d_{csv_file_name} : Dictionary[int, {data_class_name}] ##不要直接使用该变量，请使用函数访问
 
 
 ## 初始化

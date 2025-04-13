@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://p6nqfcdo6gvi"]
 
-[ext_resource type="Script" path="res://addons/config_table_csv/scenes/plugin_choose_csv_config_table_path/plugin_choose_csv_config_table_path.gd" id="1_g48a5"]
+[ext_resource type="Script" uid="uid://blycn2yh2gf45" path="res://addons/config_table_csv/scenes/plugin_choose_csv_config_table_path/plugin_choose_csv_config_table_path.gd" id="1_g48a5"]
 
 [node name="PluginChooseCsvConfigTablePath" type="MarginContainer"]
 anchors_preset = 10

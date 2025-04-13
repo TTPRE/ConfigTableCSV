@@ -4,7 +4,7 @@ class_name PropInfo
 
 
 var _a_prop_info : Array[PropInfoData] ##不要直接使用该变量，请使用函数访问
-var _d_prop_info : Dictionary ##不要直接使用该变量，请使用函数访问
+var _d_prop_info : Dictionary[int, PropInfoData] ##不要直接使用该变量，请使用函数访问
 
 
 ## 初始化
